@@ -25,7 +25,7 @@ class TopTiles extends StatelessWidget {
           ),
            Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
@@ -35,7 +35,7 @@ class TopTiles extends StatelessWidget {
           ),
           Text(
             subtitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18.0,
             ),
           ),

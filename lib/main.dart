@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'CJF ComputerShop',
       theme: themeData,
-      home: Welcome(),
+      home:  const Welcome(),
     );
   }
 }

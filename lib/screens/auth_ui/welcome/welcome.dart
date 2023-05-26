@@ -24,24 +24,12 @@ class Welcome extends StatelessWidget {
           const SizedBox(
             height: kToolbarHeight + 12,
           ),
-          const Text(
-            "Welcome",
-            style: TextStyle(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
           const SizedBox(
             height: 12,
           ),
-          const Text(
-            "Buy computer items using this app",
-            style: TextStyle(
-              fontSize: 18.0,
-            ),
-          ),
           Center(
-            child: Image.asset(AssetsImage.instance.welcomeImage,
+            child: Image.asset(
+              AssetsImage.instance.welcomeImage,
           ),
             ),
             Row(
@@ -63,7 +51,7 @@ class Welcome extends StatelessWidget {
                   onPressed: () {},
                   padding: EdgeInsets.zero,
                   child: Image.asset(
-                    AssetsImage.instance.googlelogo,
+                    AssetsImage.instance.googleLogo,
                     scale: 30.0,
                   ),
                 ),

@@ -1,26 +1,29 @@
-import 'package:e_commerce/constants/constants.dart';
-import 'package:e_commerce/firebase_helper/firebase_auth_helper/firebase_auth_helper.dart';
-import 'package:e_commerce/screens/auth_ui/sign_up/signUp.dart';
+// ignore_for_file: use_build_context_synchronously, file_names
+
+import 'package:e_commerce/constants/routes.dart';
+import 'package:e_commerce/screens/home/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/widgets/top_tiles/top_tiles.dart';
 import 'package:e_commerce/widgets/primarybutton/primary_button.dart';
-import 'package:e_commerce/constants/routes.dart';
 
-import '../../home/home.dart';
+import 'package:e_commerce/constants/constants.dart';
+import 'package:e_commerce/firebase_helper/firebase_auth_helper/firebase_auth_helper.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
     @override
-    State<Login> createState() => _LoginState();
+    State<Signup> createState() => _SignupState();
 }
 
-class _LoginState extends State<Login> {
+class _SignupState extends State<Signup> {
+  bool isShowPassword = true;
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
-
-  bool isShowPassword = true;
+  TextEditingController name = TextEditingController();
+  TextEditingController phone = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +34,25 @@ class _LoginState extends State<Login> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:  [
           const TopTiles(
-            subtitle: "Welcome back to CJF Computer Shop", title: "Login"),
+            subtitle: "Nice to see you here at CJF Computer Shop", title: "Create Account"),
             const SizedBox(
               height: 46.0,
             ),
           TextFormField(
+            controller: name,
+            decoration: const InputDecoration(
+              hintText: "Name",
+              prefixIcon: Icon(
+                Icons.person_outlined,
+              )
+            ),
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          TextFormField(
+            controller: email,
+            keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
               hintText: "E-mail",
               prefixIcon: Icon(
@@ -47,6 +64,20 @@ class _LoginState extends State<Login> {
             height: 12.0,
           ),
           TextFormField(
+            controller: phone,
+            keyboardType: TextInputType.phone,
+            decoration: const InputDecoration(
+              hintText: "Phone",
+              prefixIcon: Icon(
+                Icons.phone_outlined,
+              )
+            ),
+          ),
+          const SizedBox(
+            height: 12.0,
+          ),
+          TextFormField(
+            controller: password,
             obscureText: isShowPassword,
             decoration:  InputDecoration(
               hintText: "Password",
@@ -71,44 +102,50 @@ class _LoginState extends State<Login> {
             height: 36.0,
           ),
          PrimaryButton(
-          title: "Login",
-          onPressed: () async { 
-          bool isValidated =   loginValidation(email.text, password.text);
+          title: "Create an Account",
+          onPressed: () async{
+            bool isValidated = signUpValidation(
+              email.text, password.text, name.text, phone.text);
           if(isValidated) {
           bool isLogined = await FirebaseAuthHelper.instance
-                .login(email.text, password.text, context);
+                .signUp(email.text, password.text, context);
                 if(isLogined){
-                  // ignore: use_build_context_synchronously
                   Routes.instance.pushAndRemoveUntil(
                     widget: const Home(), context: context);
               }
              }
-           },
+          },
           ),
           const SizedBox(
             height: 24.0,
           ),
           const Center(
             child:Text(
-            "Dont have an account?")),
+            "Already have an account?")),
+          const SizedBox(
+            height: 12.0,
+            ),
+            const Center(
+            child:Text(
+            "Click Login")),
           const SizedBox(
             height: 12.0,
             ),
             Center(
               child: CupertinoButton(
             onPressed: () {
-              Routes.instance
-              .push(widget: const Signup(), context: context);
+              Navigator.of(context).pop();
             },
             child: const Text(
-              "Create an account",
+              "Login",
               style: TextStyle(color: Colors.black),
             ),
             ),
               ),
           ],
         ),
+      ),
       ),  
-    ));
+    );
   }
 }

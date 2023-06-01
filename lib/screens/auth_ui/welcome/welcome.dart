@@ -6,6 +6,8 @@ import 'package:e_commerce/widgets/top_tiles/top_tiles.dart';
 import 'package:e_commerce/constants/routes.dart';
 import 'package:e_commerce/screens/auth_ui/login/login.dart';
 
+import 'package:e_commerce/screens/auth_ui/sign_up/signUp.dart';
+
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -19,7 +21,8 @@ class Welcome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const TopTiles(
-            subtitle: "Buy any items using this app", title: "Welcome"
+            subtitle: "Looking for the best deals on cutting-edge tech products? Look no further than CJF Computer Shop, your one-stop-shop for all things tech in the Philippines!", 
+            title: "Welcome to CJF Computer Shop"
           ),
           const SizedBox(
             height: kToolbarHeight + 12,
@@ -40,20 +43,12 @@ class Welcome extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 child: const Icon(
                   Icons.facebook,
-                  size: 35,
+                  size: 50,
                   color: Colors.blue,
                 ),
                 ),
                 const SizedBox(
                   width: 12.0,
-                ),
-                CupertinoButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  child: Image.asset(
-                    AssetsImage.instance.googleLogo,
-                    scale: 30.0,
-                  ),
                 ),
               ],
             ),
@@ -70,7 +65,9 @@ class Welcome extends StatelessWidget {
               height: 18.0,
             ),
             PrimaryButton(
-               title: "Sign Up",onPressed: (){},
+               title: "Sign Up",onPressed: (){
+                 Routes.instance.push(widget: const Signup(), context: context);
+               },
                ), 
         ],
       ),

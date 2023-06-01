@@ -4,5 +4,5 @@ class AssetsImage {
   static const String _imagesPath = "assets/images";
  
   final String welcomeImage = "$_imagesPath/welcome.jpeg";
-  final String googleLogo = "$_imagesPath/googlelogo.jpeg";
+  //final String googleLogo = "$_imagesPath/google.png";
 }

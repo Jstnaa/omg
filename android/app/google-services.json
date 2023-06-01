@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "972804766636",
+    "project_id": "cjf-computer-parts",
+    "storage_bucket": "cjf-computer-parts.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972804766636:android:cab3d1b5493e377fce5809",
+        "android_client_info": {
+          "package_name": "com.example.e_commerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "972804766636-nh7du9p9avgb57daho1r500jdu052534.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNNvml0BrWa3gKwWEsV0FOoEDrl4CtmTs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972804766636-nh7du9p9avgb57daho1r500jdu052534.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "972804766636-ib8k0p4mkjl7h6roabpdacjqjaa27414.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.eCommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
